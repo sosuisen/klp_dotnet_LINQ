@@ -1,13 +1,29 @@
-List<Task> tasks = [
-    new Task("Buy milk", DateTime.Now),
-    new Task("Buy PC", new DateTime(2023, 12, 24), true),
-    new Task("Buy chocolate", new DateTime(2024, 2, 14), true)
-];
+using Newtonsoft.Json.Linq;
 
-// query syntax
-var results = from t in tasks
-              orderby t.Deadline descending
-              select $"{t.Name}, {t.Deadline}";
+string jsonText = @"{
+    books: [
+        {
+            'title': 'Shadows of Tomorrow',
+            'author': 'Elena Smith',
+            'date': '2024-01-05'
+        },
+        {
+            'title': 'Echoes of the Past',
+            'author': 'Michael Johnson',
+            'date': '2023-11-15'
+        },
+        {
+            'title': 'Whispers of the Future',
+            'author': 'Sarah Connor',
+            'date': '2024-02-20'
+        }
+    ]
+}";
+JObject json = JObject.Parse(jsonText);
+
+var results = from t in json["books"]
+              orderby t["date"] descending
+              select t["title"] + ", " + (string?)t["date"];
 foreach (var item in results)
 {
     Console.WriteLine(item);
