@@ -37,6 +37,12 @@ var results = from t in tasks
 var results = tasks.OrderByDescending(t => t.Deadline)
     .Select(t => $"{t.Name}, {t.Deadline}");
 
+var num = tasks.Where(t => t.Deadline > new DateTime(2024, 1, 1)).Count();
+Console.WriteLine(num);
+
+var num2 = tasks.Count(t => t.Deadline > new DateTime(2024, 1, 1));
+Console.WriteLine(num2);
+
 foreach (var item in results)
 {
     Console.WriteLine(item);
