@@ -21,17 +21,6 @@ string jsonText = @"{
 }";
 JObject json = JObject.Parse(jsonText);
 
-var results = json["books"].OrderByDescending(book => book["date"])
-                           .Select(book => book["title"] + ", " + book["date"]);
+var num = json["books"].Count(book => (string)book["author"] == "Sarah Connor");
 
-foreach (var item in results)
-{
-    Console.WriteLine(item);
-}
-
-class Task(string name, DateTime deadline, bool completed = false)
-{
-    public string Name { get; set; } = name;
-    public DateTime Deadline { get; set; } = deadline;
-    public bool Completed { get; set; } = completed;
-}
+Console.WriteLine(num); 
