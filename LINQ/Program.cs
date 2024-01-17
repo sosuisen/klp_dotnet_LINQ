@@ -9,7 +9,7 @@ string jsonText = @"{
         },
         {
             'title': 'Echoes of the Past',
-            'author': 'Michael Johnson',
+            'author': 'Sarah Connor',
             'date': '2023-11-15'
         },
         {
@@ -21,9 +21,9 @@ string jsonText = @"{
 }";
 JObject json = JObject.Parse(jsonText);
 
-var results = from t in json["books"]
-              orderby t["date"] descending
-              select t["title"] + ", " + (string?)t["date"];
+var results = json["books"].OrderByDescending(book => book["date"])
+                           .Select(book => book["title"] + ", " + book["date"]);
+
 foreach (var item in results)
 {
     Console.WriteLine(item);
