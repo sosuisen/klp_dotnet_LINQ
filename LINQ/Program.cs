@@ -5,6 +5,20 @@ List<Task> tasks = [
 ];
 
 // query syntax
+/*
+ var results = from t in tasks
+            select $"{t.Name}, {t.Deadline}";
+*/
+/*
+var results = from t in tasks
+              where t.Deadline < new DateTime(2024, 1, 1)
+              select $"{t.Name}, {t.Deadline}";
+*/
+/*
+var results = from t in tasks
+              where t.Name.Contains("milk")
+              select $"{t.Name}, {t.Deadline}";
+*/
 var results = from t in tasks
               orderby t.Deadline descending
               select $"{t.Name}, {t.Deadline}";
