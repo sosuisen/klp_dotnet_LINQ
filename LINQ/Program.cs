@@ -4,36 +4,18 @@ List<Task> tasks = [
     new Task("Buy chocolate", new DateTime(2024, 2, 14), true)
 ];
 
-// query syntax
-/*
- var results = from t in tasks
-            select $"{t.Name}, {t.Deadline}";
-*/
 // var results = tasks.Select(t => $"{t.Name}, {t.Deadline}");
 
-/*
-var results = from t in tasks
-              where t.Deadline < new DateTime(2024, 1, 1)
-              select $"{t.Name}, {t.Deadline}";
-*/
 /*
 var results = tasks.Where(t => t.Deadline < new DateTime(2024, 1, 1))
     .Select(t => $"{t.Name}, {t.Deadline}");
 */
-/*
-var results = from t in tasks
-              where t.Name.Contains("milk")
-              select $"{t.Name}, {t.Deadline}";
-*/
+
 /*
    var results = tasks.Where(t => t.Name.Contains("milk"))
     .Select(t => $"{t.Name}, {t.Deadline}");
 */
-/*
-var results = from t in tasks
-              orderby t.Deadline descending
-              select $"{t.Name}, {t.Deadline}";
-*/
+
 var results = tasks.OrderByDescending(t => t.Deadline)
     .Select(t => $"{t.Name}, {t.Deadline}");
 
