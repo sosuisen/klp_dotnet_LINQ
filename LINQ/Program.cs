@@ -28,10 +28,3 @@ foreach (var item in results)
 {
     Console.WriteLine(item);
 }
-
-class Task(string name, DateTime deadline, bool completed = false)
-{
-    public string Name { get; set; } = name;
-    public DateTime Deadline { get; set; } = deadline;
-    public bool Completed { get; set; } = completed;
-}
