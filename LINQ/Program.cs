@@ -21,8 +21,8 @@ string jsonText = @"{
 }";
 JObject json = JObject.Parse(jsonText);
 
-var results = json["books"].OrderByDescending(book => book["date"])
-                           .Select(book => book["title"] + ", " + book["date"]);
+var results = json["books"].OrderByDescending(book => book["author"])
+                           .Select(book => book["author"]);
 
 foreach (var item in results)
 {
