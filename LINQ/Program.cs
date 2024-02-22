@@ -1,7 +1,7 @@
 using Newtonsoft.Json.Linq;
 
 string jsonText = @"{
-    books: [
+    'books': [
         {
             'title': 'Shadows of Tomorrow',
             'author': 'Elena Smith',
